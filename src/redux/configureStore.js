@@ -1,14 +1,11 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import createLogger from 'redux-logger';
-import todo from './modules/todo'
+import { configureStore } from '@reduxjs/toolkit';
+import rocketsReducer from './Rockets/Rockets';
+import missionsSliceReducer from './Missions/Missions';
 
-const loggerMiddleware = createLogger(); // initialize logger
-
-const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore); // apply logger to redux
-
-const reducer = combineReducers({
-  todo,
+const store = configureStore({
+  reducer: {
+    rockets: rocketsReducer,
+    missions: missionsSliceReducer,
+  },
 });
-
-const configureStore = (initialState) => createStoreWithMiddleware(reducer, initialState);
-export default configureStore;
+export default store;
