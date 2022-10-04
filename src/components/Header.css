@@ -1,0 +1,23 @@
+header {
+    background-image: url('../planet.png');
+    background-repeat: no-repeat;
+    background-size: 7rem;
+    height: 120px;
+    border-bottom: 1px solid gray;
+  }
+
+  .img {
+    max-width: 50;
+    max-height: 50;
+  }
+  
+  .links {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .link-item {
+    text-decoration: none;
+    padding: 50px;
+  }
+  
