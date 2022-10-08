@@ -34,16 +34,6 @@ Link will be displayed here soon...
 🙆‍♀️ **Edith Oga**
 🙅‍♀️ **Marlyn Mayienga**
 
-## Project Milestones
-
-- Milestone 1: Setup. :heavy_check_mark:  
-- Milestone 2: Components. :heavy_check_mark: 
-- Milestone 3: Events. :heavy_check_mark:
-- Milestone 4: Refactor with hooks. :heavy_check_mark:
-- Milestone 5: Full website. :gear:
-- Milestone 6: Tests (pair programming). :hammer_and_wrench:
-- Milestone 7: Deploy. :hammer_and_wrench:
-
 
 ## 🤝 Contributing
 
