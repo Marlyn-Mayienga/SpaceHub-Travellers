@@ -12,7 +12,7 @@ export const getDragons = createAsyncThunk(DRAGONS, async () => {
     name: item.name,
     type: item.type,
     img: item.flickr_images[0],
-    reserved: false,
+    value: false,
   }));
   return data;
 });

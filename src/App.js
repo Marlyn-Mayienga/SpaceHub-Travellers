@@ -1,20 +1,33 @@
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Rocket from './components/Rocket';
-import Mission from './components/Mission';
+import { useDispatch } from 'react-redux';
+import Navbar from './components/navbar';
+import Rockets from './components/Rockets';
 import Profile from './components/profile';
+import { loadRockets } from './redux/Rockets/rockets';
 import './App.css';
+import Missions from './components/Missions';
+import Footer from './components/Footer';
+import Dragons from './components/Dragons';
 
-const App = () => (
-  <>
-    <Header>
+function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadRockets());
+  }, []);
+  return (
+    <>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Rocket />} />
-        <Route path="/Mission" element={<Mission />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Rockets />} />
+        <Route path="/MyProfile" element={<Profile />} />
+        <Route path="/Missions" element={<Missions />} />
+        <Route path="/Dragons" element={<Dragons />} />
       </Routes>
-    </Header>
-  </>
-);
+      <Footer />
+    </>
+  );
+}
 
 export default App;

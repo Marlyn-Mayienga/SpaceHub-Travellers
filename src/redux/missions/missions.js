@@ -1,31 +1,25 @@
-/* eslint-disable import/prefer-default-export */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const MISSIONS = 'MISSIONS';
+const baseURL = 'https://api.spacexdata.com/v3/missions';
 
-export const getMissions = createAsyncThunk(MISSIONS, async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/missions');
-  const getted = response.data;
-  const data = getted.map((item) => ({
-    id: item.mission_id,
-    name: item.mission_name,
-    description: item.description,
-    reserved: false,
-  }));
-  return data;
+const initialState = [];
+
+export const getMissions = createAsyncThunk('missions/getMissions', async () => {
+  const response = await axios.get(baseURL);
+  return response.data;
 });
 
-export const storeSlice = createSlice({
-  name: 'Missions',
-  initialState: [],
+export const missionsSlice = createSlice({
+  name: 'missions',
+  initialState,
   reducers: {
-    missionReserve(state, action) {
+    joinMissions(state, action) {
       const newState = state.map((mission) => {
-        if (mission.id === action.payload.id) {
+        if (mission.mission_id === action.payload.id) {
           return {
             ...mission,
-            value: !mission.value,
+            status: !mission.status,
           };
         }
         return {
@@ -35,11 +29,20 @@ export const storeSlice = createSlice({
       return newState;
     },
   },
-
-  extraReducers: {
-    [getMissions.fulfilled]: (state, action) => action.payload,
+  extraReducers: (builder) => {
+    // Add reducers to handle loading state as needed
+    builder
+      .addCase(getMissions.fulfilled, (state, action) => action.payload.map(
+        (mission) => ({
+          mission_id: mission.mission_id,
+          mission_name: mission.mission_name,
+          description: mission.description,
+          more: mission.wikipedia,
+          status: false,
+        }),
+      ));
   },
 });
-const missionAction = storeSlice.actions;
-export { missionAction };
-export default storeSlice.reducer;
+
+export const { joinMissions } = missionsSlice.actions;
+export default missionsSlice.reducer;

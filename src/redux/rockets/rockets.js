@@ -1,24 +1,26 @@
-/* eslint-disable import/prefer-default-export */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const ROCKET = 'ROCKET';
+const LOADING = 'LOADING';
 
-export const getRockets = createAsyncThunk(ROCKET, async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/rockets');
-  const getted = response.data;
-  const data = getted.map((item) => ({
+const url = 'https://api.spacexdata.com/v3/rockets';
+
+export const loadRockets = createAsyncThunk(LOADING, async () => {
+  const response = await axios.get(url);
+  const res = response.data;
+  const data = res.map((item) => ({
     id: item.rocket_id,
     name: item.rocket_name,
-    type: item.rocket_type,
+    description: item.description,
     img: item.flickr_images[0],
-    reserved: false,
+    more: item.wikipedia,
+    value: false,
   }));
   return data;
 });
 
 export const storeSlice = createSlice({
-  name: 'Rockets',
+  name: 'space Hub',
   initialState: [],
   reducers: {
     rocketReserve(state, action) {
@@ -38,7 +40,7 @@ export const storeSlice = createSlice({
   },
 
   extraReducers: {
-    [getRockets.fulfilled]: (state, action) => action.payload,
+    [loadRockets.fulfilled]: (state, action) => action.payload,
   },
 });
 const rocketAction = storeSlice.actions;
