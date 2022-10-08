@@ -1,13 +1,14 @@
-/* eslint-disable import/prefer-default-export */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const DRAGONS = 'DRAGONS';
 
-export const getDragons = createAsyncThunk(DRAGONS, async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/dragons');
-  const getted = response.data;
-  const data = getted.map((item) => ({
+const url = 'https://api.spacexdata.com/v3/dragons';
+
+export const loadDragons = createAsyncThunk(DRAGONS, async () => {
+  const response = await axios.get(url);
+  const res = response.data;
+  const data = res.map((item) => ({
     id: item.id,
     name: item.name,
     type: item.type,
@@ -17,7 +18,7 @@ export const getDragons = createAsyncThunk(DRAGONS, async () => {
   return data;
 });
 
-export const storeSlice = createSlice({
+export const dragonSlice = createSlice({
   name: 'Dragons',
   initialState: [],
   reducers: {
@@ -38,9 +39,9 @@ export const storeSlice = createSlice({
   },
 
   extraReducers: {
-    [getDragons.fulfilled]: (state, action) => action.payload,
+    [loadDragons.fulfilled]: (state, action) => action.payload,
   },
 });
-const dragonAction = storeSlice.actions;
+const dragonAction = dragonSlice.actions;
 export { dragonAction };
-export default storeSlice.reducer;
+export default dragonSlice.reducer;
