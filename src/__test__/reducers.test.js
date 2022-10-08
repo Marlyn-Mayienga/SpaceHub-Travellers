@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Mission from '../redux/Missions/missions';
 import Slice from '../redux/Rockets/rockets';
 import Dragons from '../redux/Dragons/dragons';
