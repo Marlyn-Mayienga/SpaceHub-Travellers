@@ -9,13 +9,16 @@ import './App.css';
 import Missions from './components/Missions';
 import Footer from './components/Footer';
 import Dragons from './components/Dragons';
+import { loadDragons } from './redux/Dragons/dragons';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadRockets());
+    dispatch(loadDragons());
   }, []);
+
   return (
     <>
       <Navbar />

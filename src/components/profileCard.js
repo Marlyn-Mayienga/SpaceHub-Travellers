@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { joinMissions } from '../redux/Missions/missions';
 import { rocketAction } from '../redux/Rockets/rockets';
+import { dragonAction } from '../redux/Dragons/dragons';
 
 const ProfileCard = (props) => {
   const {
@@ -14,6 +15,9 @@ const ProfileCard = (props) => {
   const handleClick = (e) => {
     if (e.target.className === 'leave-btn') {
       dispatch(joinMissions({ id: e.target.id }));
+    }
+    if (e.target.className === 'cancel-dragon') {
+      dispatch(dragonAction.dragonReserve({ id }));
     } else {
       const { id } = e.target;
       dispatch(rocketAction.rocketReserve({ id }));
@@ -41,8 +45,6 @@ const ProfileCard = (props) => {
   );
 };
 
-export default ProfileCard;
-
 ProfileCard.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
@@ -54,3 +56,5 @@ ProfileCard.propTypes = {
 ProfileCard.defaultProps = {
   name: 'default',
 };
+
+export default ProfileCard;

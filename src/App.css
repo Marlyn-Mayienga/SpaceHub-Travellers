@@ -110,7 +110,7 @@ body {
   padding: 0;
 }
 
-.cancel-button {
+.cancel-button, .cancel-dragon {
   color: #a2a2a2;
   background-color: #f4f4f4;
   border-color: #a2a2a2;

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import DragonCard from './DragonCard';
 
 const Dragons = () => {
-  const state = useSelector((state) => state.storeSlice);
+  const state = useSelector((state) => state.dragonSlice);
 
   return (
     <>
@@ -14,7 +14,7 @@ const Dragons = () => {
             id={dragon.id}
             name={dragon.name}
             src={dragon.img}
-            desc={dragon.type}
+            type={dragon.type}
             value={dragon.value}
           />
         ))}

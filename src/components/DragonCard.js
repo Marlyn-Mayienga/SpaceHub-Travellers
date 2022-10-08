@@ -5,20 +5,18 @@ import { dragonAction } from '../redux/Dragons/dragons';
 
 const DragonCard = (props) => {
   const dispatch = useDispatch();
-
   const {
-    name, desc, src, value, id,
+    id, name, src, type, value,
   } = props;
 
   const handler = (e) => {
     const { id } = e.target;
     dispatch(dragonAction.dragonReserve({ id }));
   };
-
   return (
     <div className="rocket-continer">
       <div className="img-continer">
-        <img className="image" alt="roket-img" src={src} />
+        <img className="image" alt="dragon-img" src={src} />
       </div>
       <div className="text-continer">
         <h1 className="rocket-name">{name}</h1>
@@ -27,7 +25,7 @@ const DragonCard = (props) => {
             {' '}
             <span style={{ display: value ? 'inline' : 'none' }} className="reserved-button">Reserved</span>
             {' '}
-            {desc}
+            {type}
           </p>
         </div>
         {!value && <button id={id} onClick={handler} className="card-button" type="button">Reserve Dragon</button> }
@@ -41,7 +39,7 @@ export default DragonCard;
 
 DragonCard.propTypes = {
   name: propTypes.string.isRequired,
-  desc: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
   src: propTypes.string.isRequired,
   value: propTypes.bool.isRequired,
   id: propTypes.string.isRequired,

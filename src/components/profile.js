@@ -8,7 +8,8 @@ const Profile = () => {
   const reservedRockets = rockets.filter((rocket) => rocket.value === true);
   const missions = useSelector((state) => state.missions);
   const joinedMissions = missions.filter((mission) => mission.status === true);
-
+  const dragons = useSelector((state) => state.dragonSlice);
+  const reservedDragons = dragons.filter((dragon) => dragon.value === true);
   return (
     <div className="profile-cont">
       <div className="user-reserved">
@@ -68,6 +69,36 @@ const Profile = () => {
               className="cancel-button"
               text="Cancel Reservation"
               link={rocket.more}
+            />
+          ))
+        )}
+      </div>
+
+      <div className="user-reserved">
+        <h2>
+          My Dragons
+          {' '}
+          <span>&#128645;</span>
+        </h2>
+        {reservedDragons.length === 0 ? (
+          <>
+            <div id="empty-msg">
+              <span>No dragons reserved</span>
+            </div>
+            <Link to="/Dragons">
+              <button type="button" className="join-reserv-profile">
+                Reserve a dragon
+              </button>
+            </Link>
+          </>
+        ) : (
+          reservedDragons.map((dragon) => (
+            <ProfileCard
+              key={dragon.id}
+              id={dragon.id}
+              name={dragon.name}
+              className="cancel-dragon"
+              text="Cancel Reservation"
             />
           ))
         )}
