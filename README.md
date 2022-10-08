@@ -31,8 +31,8 @@ Link will be displayed here soon...
 ## Author :writing_hand: 
 
 :man_technologist:  **David Isea**
-:womman_technologist:  **Edith Oga**
-:womman_technologist:  **Marlyn Mayienga**
+🙆‍♀️ **Edith Oga**
+🙅‍♀️ **Marlyn Mayienga**
 
 ## Project Milestones
 
