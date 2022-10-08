@@ -28,10 +28,6 @@ Link will be displayed here soon...
 
 4. "code ." To open the project on your local editor
 
-5. Please click on the "acess link" so you can view the live demo
-
-6. You can use to make any mathematical operations/calculations.
-
 ## Author :writing_hand: 
 
 :man_technologist:  **David Isea**
