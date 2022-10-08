@@ -1,6 +1,6 @@
-import Mission from '../redux/Missions/missions.js';
-import Slice from '../redux/Rockets/rockets.js';
-import Dragons from '../redux/Dragons/dragons.js';
+import Mission from '../redux/Missions/missions';
+import Slice from '../redux/Rockets/rockets';
+import Dragons from '../redux/Dragons/dragons';
 
 describe('test the reducers to return the initial state', () => {
   it('test the storeSlice reducer for the mission to return empty array as initialState', () => {
