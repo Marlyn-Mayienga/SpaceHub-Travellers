@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { dragonAction } from '../redux/Dragons/dragons';
+import { dragonAction } from '../redux/dragons/dragons';
 
 const DragonCard = (props) => {
   const dispatch = useDispatch();
