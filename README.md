@@ -35,10 +35,8 @@ Link will be displayed here soon...
 ## Author :writing_hand: 
 
 :man_technologist:  **David Isea**
-
-- GitHub: [@AlucardSanin](https://github.com/AlucardSanin)
-- Twitter: [@cadivisea](https://twitter.com/cadivisea)
-- LinkedIn: [David Isea](https://www.linkedin.com/in/david-isea-560424236/)
+:womman_technologist:  **Edith Oga**
+:womman_technologist:  **Marlyn Mayienga**
 
 ## Project Milestones
 
