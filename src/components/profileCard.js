@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { joinMissions } from '../redux/Missions/missions';
-import { rocketAction } from '../redux/Rockets/rockets';
-import { dragonAction } from '../redux/Dragons/dragons';
+import { joinMissions } from '../redux/missions/missions';
+import { rocketAction } from '../redux/rockets/rockets';
+import { dragonAction } from '../redux/dragons/dragons';
 
 const ProfileCard = (props) => {
   const {

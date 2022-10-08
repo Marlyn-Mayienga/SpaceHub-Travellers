@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import Navbar from './components/navbar';
 import Rockets from './components/Rockets';
 import Profile from './components/profile';
-import { loadRockets } from './redux/Rockets/rockets';
+import { loadRockets } from './redux/rockets/rockets';
 import './App.css';
 import Missions from './components/Missions';
 import Footer from './components/Footer';
 import Dragons from './components/Dragons';
-import { loadDragons } from './redux/Dragons/dragons';
+import { loadDragons } from './redux/dragons/dragons';
 
 function App() {
   const dispatch = useDispatch();

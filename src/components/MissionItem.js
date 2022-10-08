@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { joinMissions } from '../redux/Missions/missions';
+import { joinMissions } from '../redux/missions/missions';
 
 const MissionItem = (props) => {
   const { mission } = props;
